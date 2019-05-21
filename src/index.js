@@ -1,11 +1,10 @@
-// It might be a good idea to add event listener to make sure this file
-// only runs after the DOM has finshed loading.
-
 //Variables
 const quoteList = document.getElementById("quote-list");
 const quoteForm = document.getElementById("new-quote-form");
 const newQuoteInput = document.getElementById("new-quote");
 const newAuthorInput = document.getElementById("author");
+
+
 
 ///////// All BOOK DATA //////////
 
@@ -15,8 +14,6 @@ function fetchBooks() {
     .then(res => res.json())
     .then(books => createQuoteList(books))
 }
-
-
 
 //Sets quoteList innerHTML equal to collection of quotes <li>s
 function createQuoteList(books) {
@@ -40,6 +37,7 @@ function createQuote(book) {
   `
   return quoteLi;
 }
+
 
 
 ///////// SUBMIT NEW QUOTE //////////
@@ -80,6 +78,8 @@ function quoteObj() {
     })
   }
 }
+
+
 
 ///////// LIKE QUOTE //////////
 
