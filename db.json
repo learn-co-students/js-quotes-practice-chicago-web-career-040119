@@ -9,7 +9,7 @@
     {
       "id": 2,
       "quote": "There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
-      "likes": 7,
+      "likes": 8,
       "author": "Collin Powell"
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": 4,
       "quote": "You gain strength, courage and confidence by every experience in which you really stop to look fear in the face. You are able to say to yourself, 'I have lived through this horror. I can take the next thing that comes along.' You must do the thing you think you cannot do.",
-      "likes": 1,
+      "likes": 42,
       "author": "Eleanor Roosevelt"
     },
     {
@@ -57,14 +57,8 @@
     {
       "id": 10,
       "quote": "You know, failure hurts. Any kind of failure stings. If you live in the sting, you will undoubtedly fail. My way of getting past the sting is to say no, I’m just not going to let this get me down.",
-      "likes": 1,
+      "likes": 2,
       "author": "Sonia Sotomayor"
-    },
-    {
-      "author": "Nick Moore",
-      "quote": "This is a test quote.",
-      "likes": 0,
-      "id": 11
     }
   ]
 }
