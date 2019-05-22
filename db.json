@@ -3,19 +3,19 @@
     {
       "id": 1,
       "quote": "The here and now is all we have, and if we play it right it's all we'll need.",
-      "likes": 1,
+      "likes": 3,
       "author": "Ann Richards"
     },
     {
       "id": 2,
       "quote": "There are no secrets to success. It is the result of preparation, hard work, and learning from failure.",
-      "likes": 1,
+      "likes": 3,
       "author": "Collin Powell"
     },
     {
       "id": 3,
       "quote": "Don't count the days, make the days count.",
-      "likes": 1,
+      "likes": 2,
       "author": "Mike Tyson"
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": 8,
       "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-      "likes": 1,
+      "likes": 2,
       "author": "Winston Churchhill"
     },
     {
@@ -69,73 +69,6 @@
       "quote": "test2",
       "author": "tester2",
       "id": 12
-    },
-    {
-      "quote": "omg",
-      "author": "so cool",
-      "id": 13
-    },
-    {
-      "quote": "test",
-      "author": "yup",
-      "id": 14
-    },
-    {
-      "quote": "test again",
-      "author": "yp2",
-      "id": 15
-    },
-    {
-      "quote": "testtttt",
-      "author": "dfasdfadfdfad",
-      "id": 16
-    },
-    {
-      "quote": "new one",
-      "author": "another one",
-      "id": 17
-    },
-    {
-      "quote": "this is great",
-      "author": "yessir",
-      "likes": 0,
-      "id": 18
-    },
-    {
-      "quote": "",
-      "author": "",
-      "likes": 0,
-      "id": 19
-    },
-    {
-      "quote": "",
-      "author": "",
-      "likes": 0,
-      "id": 20
-    },
-    {
-      "quote": "",
-      "author": "",
-      "likes": 0,
-      "id": 21
-    },
-    {
-      "quote": "dddddd",
-      "author": "ddddddd",
-      "likes": 0,
-      "id": 22
-    },
-    {
-      "quote": "eeeeee",
-      "author": "eeeeeee",
-      "likes": 0,
-      "id": 23
-    },
-    {
-      "quote": "wwwwwwwwww",
-      "author": "ppppppppppppp",
-      "likes": 0,
-      "id": 24
     }
   ]
 }

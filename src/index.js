@@ -11,7 +11,12 @@ subButton.addEventListener('click', function() {
   subQuote(event)
 })
 
-/////////////////// Event Functions///////////////////////////
+quoteList.addEventListener('click', function() {
+  likePost(event)
+  deleteQuotes(event)
+})
+
+/////////////////// Event Functions ///////////////////////////
 
 function subQuote(event) {
   if (event.target === subButton) {
@@ -28,20 +33,37 @@ function subQuote(event) {
   }
 }
 
-function likePost(event) {
+function likePost (event) {
+  if (event.target.className === "btn-success") {
+    console.log(event.target)
+    let likeData = {}
+    likeData.id = parseInt(event.target.parentElement.parentElement.dataset.qid)
+    likeData.likes = parseInt(event.target.querySelector("span").textContent)
+    console.log("this is my likeData object: ", likeData)
 
-})
+    patchLike(likeData)
+  }
+}
 
-/////////////////// Event Functions///////////////////////////
+function deleteQuotes (event) {
+  if (event.target.className === "btn-danger") {
+    console.log("delete button clicked", event.target)
+    let deleteID = parseInt(event.target.parentElement.parentElement.dataset.qid)
+    deleteQuoteFetch(deleteID)
+  }
+}
 
-function postQuote(qSubmit) {
+/////////////////// Event Functions End ///////////////////////////
+
+/////////////////// Fetch Functions ///////////////////////////
+function postQuote (qSubmit) {
   fetch("http://localhost:3000/quotes", {
     method: "POST",
     headers:{
       "Content-Type": "application/json",
       Accept: "application/json"
     },
-    body: JSON.stringify ({
+    body: JSON.stringify({
       quote: qSubmit.quote,
       author: qSubmit.author,
       likes: qSubmit.likes
@@ -52,6 +74,35 @@ function postQuote(qSubmit) {
   .then(data => quoteList.innerHTML += renderLi(data))
 }
 
+function patchLike(qLike) {
+  fetch(`http://localhost:3000/quotes/${qLike.id}`, {
+    method: "PATCH",
+    headers:{
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    },
+    body: JSON.stringify ({
+      likes: qLike.likes + 1
+    })
+  })
+  .then(resp => resp.json())
+  // .then(data => console.log("this is what you got"))
+  .then(data => {
+    console.log("like patch success", data)
+    renderLikes(data)
+  })
+}
+
+function deleteQuoteFetch (delID) {
+  let deleteThis = delID
+  fetch(`http://localhost:3000/quotes/${delID}`, {method: 'Delete'})
+  .then(resp => resp.json())
+  .then(data => {
+    console.log("this is resp from serv for del", data)
+    removeLi(deleteThis)
+  })
+}
+
 function getQuotes() {
   fetch("http://localhost:3000/quotes")
   .then(resp => resp.json())
@@ -60,6 +111,9 @@ function getQuotes() {
   })
 }
 
+/////////////////// Fetch Functions End ///////////////////////////
+
+/////////////////// Render Functions ///////////////////////////
 function renderLi(object) {
   return(
     `
@@ -77,7 +131,7 @@ function renderLi(object) {
   )
 }
 
-function renderQuotes(object) {
+function renderQuotes (object) {
   let quoteHTML = ``
   object.forEach((qObj) => {
     quoteHTML += renderLi(qObj)
@@ -85,4 +139,17 @@ function renderQuotes(object) {
   return quoteHTML
 }
 
+function renderLikes (data) {
+  likedLi = quoteList.querySelector(`.quote-card[data-qid='${data.id}']`)
+  likedLi.querySelector("span").textContent = data.likes
+}
+
+function removeLi (id) {
+  let removeLi = quoteList.querySelector(`.quote-card[data-qid='${id}']`)
+  removeLi.parentNode.removeChild(removeLi)
+}
+
+/////////////////// Render Functions End ///////////////////////////
+
+/////////////////// PageLoad Functions ///////////////////////////
 getQuotes()
